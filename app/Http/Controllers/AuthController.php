@@ -11,9 +11,9 @@ class AuthController extends Controller
     public function index()
     {
         if ($user = Auth::user()) {
-            if ($user->level == 'admin') {
+            if ($user->level == '1') {
                 return redirect()->intended('admin');
-            } elseif ($user->level == 'editor') {
+            } elseif ($user->level == '2') {
                 return redirect()->intended('editor');
             }
         }
@@ -32,9 +32,9 @@ class AuthController extends Controller
 
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
-                if ($user->level == 'admin') {
+                if ($user->level == '1') {
                     return redirect()->intended('admin');
-                } elseif ($user->level == 'editor') {
+                } elseif ($user->level == '2') {
                     return redirect()->intended('editor');
                 }
                 return redirect()->intended('/');

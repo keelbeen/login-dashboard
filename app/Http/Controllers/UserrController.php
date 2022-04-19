@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Userr;
 
-class AdminController extends Controller
+class UserrController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $data = Userr::all();
-        return view('dashboard.index')->with([
-            'data' => $data
+        $user = Userr::all();
+        return view('index')->with([
+            'user' => $user
         ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('create');
@@ -29,9 +39,9 @@ class AdminController extends Controller
     public function store(Request $request)
     {
        
-        $data = $request->except(['_token']);
-        Userr::insert($data);
-        return redirect('admin');
+        $user = $request->except(['_token']);
+        Userr::insert($user);
+        return redirect('/');
     }
 
     /**
@@ -42,9 +52,9 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $data = Userr::findOrFail($id);
+        $user = Userr::findOrFail($id);
         return view('show')->with([
-            'data' => $data
+            'user' => $user
         ]);
     }
 
@@ -69,9 +79,9 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $item = Userr::findOrfail($id);
-        $data = $request->except(['_token']);
-        $item->update($data);
-        return redirect('admin');
+        $user = $request->except(['_token']);
+        $item->update($user);
+        return redirect('/');
     }
 
     /**
@@ -84,6 +94,6 @@ class AdminController extends Controller
     {
         $item = Userr::findOrfail($id);
         $item->delete();
-        return redirect('admin');
+        return redirect('/');
     }
 }

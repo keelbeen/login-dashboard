@@ -29,8 +29,8 @@
                                         <h3 class="text-center font-weight-dark my-4 text-light">Register</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{url('proses_login')}}" method="POST" id="logForm">
-                                            {{ csrf_field() }}
+                                        <form action="{{url('store')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="form-group">    
                                                     <label class="small mb-1 text-light" for="name">Name</label>
                                                     <input
@@ -57,7 +57,7 @@
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                       </div>
-                                                    @enderror              
+                                                    @enderror                      
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1 text-light" for="email">Email Address</label>
@@ -71,7 +71,7 @@
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                       </div>
-                                                    @enderror              
+                                                    @enderror       
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1 text-light" for="password">Password</label>

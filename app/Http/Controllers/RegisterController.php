@@ -4,50 +4,86 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller
+class AdminController extends Controller
 {
-    public function register()
+    public function index()
     {
-        return view('register', [
-            'title' => 'Register',
-            'active' => 'register'
+        $data = User::all();
+        return view('dashboard.index')->with([
+            'data' => $data
         ]);
     }
-    public function proses_register(Request $request)
+
+    public function create()
     {
-        request()->validate(
-            [
-                'username' => 'required',
-                'name' => 'required',
-                'email' => 'required',
-                'level' => 'required',
-                'password' => 'required',
-            ]);
-
-        $kredensil = $request->only('username','password', 'name', 'email', 'level');
-
-            if (Auth::attempt($kredensil)) {
-                $user = Auth::user();
-                if ($user->level == 'admin') {
-                    return redirect()->intended('admin');
-                } elseif ($user->level == '') {
-                    return redirect()->intended('');
-                }
-                return redirect()->intended('/');
-            }
-
-        return redirect('register')
-                                ->withInput()
-                                ->withErrors(['register_gagal' => 'These credentials do not match our records.']);
+        return view('create');
     }
 
-    public function logout(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-       $request->session()->flush();
-       Auth::logout();
-       return Redirect('login');
+       
+        $data = $request->except(['_token']);
+        User::insert($data);
+        return redirect('admin');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $data = User::findOrFail($id);
+        return view('show')->with([
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+      
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $item = User::findOrfail($id);
+        $data = $request->except(['_token']);
+        $item->update($data);
+        return redirect('admin');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $item = User::findOrfail($id);
+        $item->delete();
+        return redirect('admin');
     }
 }
-

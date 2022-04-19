@@ -15,7 +15,7 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-dark" href="#">Admin</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-dark" href="#"><i class="bi bi-person-check"></i>  {{ auth()->user()->username }}</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -41,15 +41,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">
-              <span data-feather="file"></span>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
+            <a class="nav-link {{ Request::is('user.store') ? 'active' : '' }}  text-light" href="/user.store">
+              <span data-feather="shopping-bag"></span>
+              Store
             </a>
           </li>
         </ul>
@@ -60,25 +54,26 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
       </div>
-      <div class="card" style="width: 20rem;">
-        <div class="card-body justify-content-center">
-          <h5 class="card-title"><i class="bi bi-person-circle"></i>  Welcome back, Admin!</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </main>
+      <div class="card col-md-4 ms-sm-auto col-lg-8 px-md-4" style="width: 19rem;">
+        <div class="card-body justify-content-between  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+          <h5 class="card-title"><i class="bi bi-exclamation-circle"></i>  Welcome back, {{ auth()->user()->username }}</h5>
+          <p class="card-text">Card ini belum dilengkapi. Mohon untuk segera lengkapi card ini {{ auth()->user()->username }}</p>
         </div>
-        <div class="card">
-            <div class="card-header">
-              Featured
+      </div>
+        <div class="card ms-sm-auto col-lg-8" style="width: 37rem;">
+            <div class="card-header"><i class="bi bi-person-circle"></i>
+            {{ auth()->user()->username }}
             </div>
-            <div class="card-body margin-right">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card-body">
+              
+              <p class="card-text text-bold"> 31425432534253425</p>
             </div>
           </div>
       </div>
-    </main>
   </div>
 </div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
