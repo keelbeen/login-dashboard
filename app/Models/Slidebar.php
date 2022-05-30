@@ -11,6 +11,7 @@ class Slidebar extends Model
     use softDeletes;
     protected $table ="slidebar";
     protected $fillable = [
+        'id',
         'image',
 
     ];
