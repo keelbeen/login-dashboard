@@ -23,7 +23,7 @@
     <div class="nav-item text-nowrap"> 
       <form action="/logout" method="get">
         @csrf
-        <button type="submit" class="nav-link px-3 bg-light border-0 text-dark" >Logout <i class="bi bi-box-arrow-right"></i></button>
+        <button type="submit" class="nav-link px-5 bg-light border-0 text-dark" >Logout <i class="bi bi-box-arrow-right"></i></button>
     </form>
     </div>
   </div>
@@ -35,13 +35,13 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="editor">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('user.store') ? 'active' : '' }}  text-light" href="/user.store">
+            <a class="nav-link text-light" href="user.store">
               <span data-feather="shopping-bag"></span>
               Store
             </a>

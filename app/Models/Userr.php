@@ -12,6 +12,14 @@ class Userr extends Model
     protected $table ="userr";
     protected $fillable = [
         'name',
+        'username',
+        'level',
+        'email',
+        'email_verified_at',
+        'password',
+        'phone',
+        'dateofbirth',
+        'gender'
 
     ];
     protected $hidden;

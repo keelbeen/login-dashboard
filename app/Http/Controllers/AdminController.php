@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Userr;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $data = Userr::all();
+        $data = User::WHERE('level', '2')->Orwherenull('level')->get();
         return view('dashboard.index')->with([
             'data' => $data
+            
         ]);
     }
 
@@ -30,7 +32,7 @@ class AdminController extends Controller
     {
        
         $data = $request->except(['_token']);
-        Userr::insert($data);
+        User::insert($data);
         return redirect('admin');
     }
 
@@ -42,7 +44,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $data = Userr::findOrFail($id);
+        $data = User::findOrFail($id);
         return view('show')->with([
             'data' => $data
         ]);
@@ -68,7 +70,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Userr::findOrfail($id);
+        $item = User::findOrfail($id);
         $data = $request->except(['_token']);
         $item->update($data);
         return redirect('admin');
@@ -82,7 +84,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $item = Userr::findOrfail($id);
+        $item = User::findOrfail($id);
         $item->delete();
         return redirect('admin');
     }

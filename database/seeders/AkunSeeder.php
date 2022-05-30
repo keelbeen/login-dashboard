@@ -23,13 +23,6 @@ class AkunSeeder extends Seeder
                 'level'=>'1',
                'password'=> bcrypt('123456'),
             ],
-            [
-                'username' => 'user',
-               'name'=>'ini akun User (non admin)',
-               'email'=>'user@example.com',
-                'level'=>'2',
-               'password'=> bcrypt('123456'),
-            ],
         ];
 
         foreach ($user as $key => $value) {

@@ -29,7 +29,7 @@
                                         <h3 class="text-center font-weight-dark my-4 text-light">Register</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{url('store')}}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{url('proses_regis')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">    
                                                     <label class="small mb-1 text-light" for="name">Name</label>
@@ -73,6 +73,47 @@
                                                       </div>
                                                     @enderror       
                                             </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1 text-light" for="email">Date Of Birth</label>
+                                                <input
+                                                    class="form-control py-4  border-0 @error('dateofbirth') is-invalid @enderror" id="dateofbirth" required value="{{ old('dateofbirth') }}"
+                                                    id="dateofbirth"
+                                                    name="dateofbirth"
+                                                    type="date"
+                                                    placeholder="Enter Date"/>
+                                                    @error ('dateofbirth')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                      </div>
+                                                    @enderror       
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1 text-light" for="phone">Phone Number</label>
+                                                <input
+                                                    class="form-control py-4  border-0 @error('phone') is-invalid @enderror" id="phone" required value="{{ old('phone') }}"
+                                                    id="phone"
+                                                    name="phone"
+                                                    type="text"
+                                                    placeholder="Enter Phone Number"/>
+                                                    @error ('phone')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                      </div>
+                                                    @enderror       
+                                            </div>
+                                            <label class="small mb-1 text-light" for="gender">Gender</label>
+                                                <div class="form-group">
+                                                    <select class="form-select py-2" style="width: 100%" aria-label="Default select example" name="gender">
+                                                        <option selected>Choose your Gender</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                      </select>
+                                                        @error ('gender')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                          </div>
+                                                        @enderror       
+                                                </div>       
                                             <div class="form-group">
                                                 <label class="small mb-1 text-light" for="password">Password</label>
                                                 <input

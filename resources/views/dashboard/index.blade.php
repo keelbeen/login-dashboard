@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard</title>
+    <title>Dashboard Admin</title>
     
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -15,7 +15,7 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-dark" href="#"><i class="bi bi-person-check"></i>  {{ auth()->user()->username }}</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 bg-dark" href="#" style="width: 14%"><i class="bi bi-person-check"></i>  {{ auth()->user()->username }}</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,7 +23,7 @@
     <div class="nav-item text-nowrap"> 
       <form action="/logout" method="get">
         @csrf
-        <button type="submit" class="nav-link px-3 bg-light border-0 text-dark" >Logout <i class="bi bi-box-arrow-right"></i></button>
+        <button type="submit" class="nav-link px-5 bg-light border-0 text-dark" >Logout <i class="bi bi-box-arrow-right"></i></button>
     </form>
     </div>
   </div>
@@ -31,29 +31,29 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark  sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse" style="width: 14%">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}  text-light" href="admin">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('dasboard/categories') ? 'active' : '' }}  text-light" href="/dashboard/categories">
+            <a class="nav-link mt-2 {{ Request::is('admin.slidebars') ? 'active' : '' }}  text-light" href="admin.slidebars">
               <span data-feather="file-text"></span>
-              Categories
+              Slider Front
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  {{ Request::is('dasboard/products') ? 'active' : '' }}  text-light" href="/dashboard/products">
+            <a class="nav-link mt-2 {{ Request::is('admin.products') ? 'active' : '' }}  text-light" href="admin.products">
               <span data-feather="shopping-cart"></span>
               Products
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  {{ Request::is('dasboard/payment') ? 'active' : '' }}  text-light" href="/dashboard/payment">
+            <a class="nav-link mt-2 {{ Request::is('pegawai') ? 'active' : '' }}  text-light" href="pegawai">
               <span data-feather="dollar-sign"></span>
               Payment Confirmation
             </a>
@@ -65,15 +65,10 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
+        <a href="{{ url('create') }}" class="btn btn-dark" style="width: 15%">Add Users <i class="bi bi-person-plus" style="margin-left: 5%"></i></a>
       </div>
       </main>
-      <div class="card col-md-4 ms-sm-auto col-lg-8 px-md-4" style="width: 20rem;">
-        <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-exclamation-circle"></i>  Welcome back, {{ auth()->user()->username }}</h5>
-          <p class="card-text mt-3">This task is not completely finished, there are still many things that the admin needs to fix and add to this</p>
-        </div>
-      </div>
-        <div class="card ms-sm-auto col-lg-8" style="width: 37rem;">
+        <div class="justify-content-center ms-sm-auto" style="width: 86%;">
             <div class="card-header">
               <i class="bi bi-clipboard-data"></i> Status Progress
             </div>
@@ -81,25 +76,32 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">User</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Date of birth</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                 @foreach ($data as $dataUser)
                   <tr>
-                    <th>{{ $dataUser->id }}</th>
                     <td>{{ $dataUser->name }}</td>
+                    <td>{{ $dataUser->username }}</td>
+                    <td>{{ $dataUser->email }}</td>
+                    <td>{{ $dataUser->level }}</td>
+                    <td>{{ $dataUser->phone }}</td>
+                    <td>{{ $dataUser->dateofbirth }}</td>
                     <td>
-                      <a class="btn btn-warning" href="{{ url('/show/'.$dataUser->id) }}">Edit</a><td>
-                        <a class="btn btn-danger" href="{{ url('/destroy/'.$dataUser->id) }}">Delete</a></td></td>
+                      <a class="btn btn-warning" href="{{ url('/show/'.$dataUser->id) }}"><i class="bi bi-pencil-square"></i></a><td><a class="btn btn-danger" href="{{ url('/destroy/'.$dataUser->id) }}"><i class="bi bi-trash"></i></a></td></td>
                   </tr>
                 </tbody>
                 @endforeach
+                <div class="card-footer text-muted"></div>
               </table>
               <p class="card-text"></p>
-              <a href="{{ url('create') }}" class="btn btn-primary">Add Users</a>
             </div>
           </div>
       </div>

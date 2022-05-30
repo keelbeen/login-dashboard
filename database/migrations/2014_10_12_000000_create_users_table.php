@@ -18,10 +18,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('level');
+            $table->string('phone')->nullable();
+            $table->enum('gender', ['male','female'])->nullable();
+            $table->date('dateofbirth')->nullable();
+            $table->enum('level', ['1','2','3'])->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

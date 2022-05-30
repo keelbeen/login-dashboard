@@ -2,7 +2,9 @@
 <style>
     body{
         font-family: sans-serif;
-        background: url(img/s1.jpg);
-        background-size: cover;
+        background: url(img/0.png);
+        background-size: 87%;
+        background-position: 50%;
+        background-position-y: 60%;
     }
 </style>
