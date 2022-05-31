@@ -14,6 +14,7 @@ Route::resource('pegawai', 'App\Http\Controllers\PegawaiController'::class);
 Route::get('admin.products', 'App\Http\Controllers\ProductController@index')->name('admin.products');
 Route::get('admin.payment', 'App\Http\Controllers\ProductController@index')->name('admin.payment');
 Route::get('home.index', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Route::get('home.detail', 'App\Http\Controllers\HomeController@index2')->name('home.detail');
 Route::get('create4', 'App\Http\Controllers\SlidebarController@create4')->name('create4');
 Route::get('admin.slidebars', 'App\Http\Controllers\SlidebarController@index')->name('admin.slidebars');
 Route::get('add', 'App\Http\Controllers\ProductController@add')->name('create3');
@@ -66,5 +67,7 @@ Route::put('/update1/{slidebar}', [SlidebarController::class, 'update1'])->name(
 Route::delete('/delete1/{slidebar}', [SlidebarController::class, 'delete1'])->name('delete1');
 
 Route::get('home.index', 'App\Http\Controllers\HomeController::@index')->name('home.index');
+Route::get('home.detail', 'App\Http\Controllers\HomeController::@index2')->name('home.detail');
 Route::get('home.index', [HomeController::class, 'index']);
+Route::get('home.detail', [HomeController::class, 'index2']);
 Route::resource('pegawai', PegawaiController::class,);

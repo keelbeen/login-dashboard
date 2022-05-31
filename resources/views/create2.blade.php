@@ -16,20 +16,19 @@
                                     <h3 class="text-center font-weight-dark my-4 text-light">Add Products</h3>
                                 </div>
                                 <div class="card-body">
-    <div class="container col-lg-8 mt-5">
             <div class="form-group">
                 <form action="{{ route('products.create') }}" method="POST" enctype="multipart/form-data" class="form">
                     @csrf
                 @csrf
                     <div class="mb-3">
-                        <label for="name" class="form-label bg-dark text-warning">Nama Produk</label>
+                        <label for="name" class="form-label text-light">Product Name</label>
                         <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name" placeholder="Enter Name">
                         @error('name')
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="image" class="form-label bg-dark text-warning">Foto Image</label>
+                        <label for="image" class="form-label  text-light">Product Image</label>
                         <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
                        @error('image')
                          <div class="invalid-feedback">
@@ -38,35 +37,35 @@
                        @enderror   
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label bg-dark text-warning">Harga Produk</label>
+                        <label for="price" class="form-label  text-light">Product Price</label>
                         <input class="form-control @error('price') is-invalid @enderror" type="number" id="price" name="price" placeholder="Enter Price">
                         @error('price')
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="stock" class="form-label bg-dark text-warning">Stock Produk</label>
+                        <label for="stock" class="form-label  text-light">Product Stock</label>
                         <input class="form-control @error('stock') is-invalid @enderror" type="text" id="stock" name="stock" placeholder="Enter Stock">
                         @error('stock')
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="weight" class="form-label bg-dark text-warning">Berat Produk</label>
+                        <label for="weight" class="form-label  text-light">Product Weight</label>
                         <input class="form-control @error('weight') is-invalid @enderror" type="text" id="number" name="weight" placeholder="Enter Weight">
                         @error('weight')
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="itemcondition" class="form-label bg-dark text-warning">Kondisi Produk</label>
+                        <label for="itemcondition" class="form-label  text-light">Item Condition</label>
                         <input class="form-control @error('itemcondition') is-invalid @enderror" type="text" id="itemcondition" name="itemcondition" placeholder="Enter Item Condition">
                         @error('itemcondition')
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="minorder" class="form-label bg-dark text-warning">Minimal Pemesanan</label>
+                        <label for="minorder" class="form-label  text-light">Min Order</label>
                         <input class="form-control @error('minorder') is-invalid @enderror" type="text" id="minorder" name="minorder" placeholder="Enter Min Order">
                         @error('minorder')
                         <small class="error">{{ $message }}</small>
@@ -75,7 +74,7 @@
                     <form action="{{ route('products.create') }}" method="POST" enctype="multipart/form-data" class="form">
                         @csrf
                     <div class="mb-3">
-                        <label for="description" class="form-label bg-dark text-warning">Deskripsi Produk</label>
+                        <label for="description" class="form-label  text-light">Description</label>
                         <input class="form-control @error('description') is-invalid @enderror" type="text" id="description" name="description" placeholder="Enter Description">
                         @error('description')
                         <small class="error">{{ $message }}</small>
@@ -87,7 +86,7 @@
                         <button class="btn btn-primary btn-block" type="submit">Add Products</button>
                     </div>
                     <div class="form-group mt-4">
-                            <a class="btn btn-dark" href="{{ url('/admin') }}"> 
+                            <a class="text-light" href="{{ url('/admin') }}"> 
                                 <i class="bi bi-box-arrow-left"></i> Back To Dashboard</a>
                         </div>
             </form>

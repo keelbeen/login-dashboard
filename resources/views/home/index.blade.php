@@ -32,41 +32,44 @@
     </div>
   </header>
 </section>
-<section>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<section><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      @foreach($slidebar as $slidebars)
-      <div class="carousel-item active {{$slidebars['id']==1?'active':'' }}">
-        <img class="d-block w-100" src="{{ $slidebars['image'] }}" alt="First slide">
-    </div>
-
-    @endforeach
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner mt-4">
+          <div class="carousel-item active">
+              <img class="d-block w-100" src="pict/banner-1.png" alt="First slide">
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="pict/banner-2.jfif" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="pict/banner-5.jfif" alt="Third slide">
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+  </div>
 </section>
   <main class="px-md-4 mt-3">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2 mt-3">DAFTAR TOKO</h1>
     </div>
+    
   </main>
   <section class="bg-light border rounded-3 mt-2" style="margin-left: 1rem;">
       <img src="pict/ipb.jpg" style="width: 12%; height: 12%; margin-right: 50%" class="m-4 md-4">
@@ -81,14 +84,17 @@
     <h1 class="h2 mt-3">PRODUK DISKON 
       <small><a class="text-warning" href="">Lihat Semua</a></small></h1>
   </div>
+  
 </main>
+@foreach ($product as $products)
 <section class="mt-3 border rounded-3 bg-light" style="margin-left: 1rem;">
-  @foreach($product as $products)
-    <img src="pict/tas.jpg" style="width: 18%; height: 20%; margin-right: 50%" class="m-5">
-    <img src="pict/kamera1.jpg" style="width: 18%; height: 20%; margin-right: 50%" class="m-4">
-    <img src="pict/hp1.jpeg" style="width: 20%; height: 20%; margin-right: 50%" class="m-5">
-    <img src="pict/casan.jpg" style="width: 16%; height: 20%; margin-right: 50%" class="m-5">
+    <img src="{{asset('storage/'. $products->image)}}" style="width: 18%; height: 20%; margin-right: 50%" class="m-5">
+    <img src="{{asset('storage/'. $products->image)}}" style="width: 18%; height: 20%; margin-right: 50%" class="m-4">
+    <img src="{{asset('storage/'. $products->image)}}" style="width: 20%; height: 20%; margin-right: 50%" class="m-5">
+    <img src="{{asset('storage/'. $products->image)}}" style="width: 16%; height: 20%; margin-right: 50%" class="m-5">
+    @endforeach
   </section>
+  
 <main class="px-md-4 mt-3">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2 mt-3">PRODUK TERBARU
