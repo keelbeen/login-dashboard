@@ -19,7 +19,7 @@ class RegisterController extends Controller
                 'name' => 'required|max:255',
                 'level' => 'max:20',
                 'username' => ['required', 'min:3', 'max:255'],
-                'email' => 'required|email:dns',
+                'email' => 'required',
                 'password' => 'required|min:5|max:255',
                 'phone' => 'required|min:5|max:255',
                 'gender' => 'required|max:255',

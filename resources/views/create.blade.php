@@ -102,7 +102,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="small mb-1 text-light" for="gender">Gender</label>
-                                                        <select class="form-select" name="gender" aria-label="Default select example">
+                                                        <select class="form-select py-2" name="gender" aria-label="Default select example" style="width: 100%">
                                                             <option selected>Choose your Gender</option>
                                                             <option value="male">Male</option>
                                                             <option value="female">Female</option>

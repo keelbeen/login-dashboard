@@ -50,13 +50,16 @@
                         <small class="error">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="weight" class="form-label  text-light">Product Weight</label>
-                        <input class="form-control @error('weight') is-invalid @enderror" type="text" id="number" name="weight" placeholder="Enter Weight">
-                        @error('weight')
-                        <small class="error">{{ $message }}</small>
-                        @enderror
-                    </div>
+                    <label class="small mb-1 text-light" for="weight"></label>
+                                                <div class="form-group">
+                                                    <div class="mb-3">
+                                                        <label for="weight" class="form-label  text-light">Product weight</label>
+                                                        <input class="form-control @error('weight') is-invalid @enderror" type="text" id="weight" name="weight" placeholder="Enter weight">
+                                                        @error('weight')
+                                                        <small class="error">{{ $message }}</small>
+                                                        @enderror
+                                                    </div>       
+                                                </div>       
                     <div class="mb-3">
                         <label for="itemcondition" class="form-label  text-light">Item Condition</label>
                         <input class="form-control @error('itemcondition') is-invalid @enderror" type="text" id="itemcondition" name="itemcondition" placeholder="Enter Item Condition">

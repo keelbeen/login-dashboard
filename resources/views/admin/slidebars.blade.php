@@ -64,7 +64,7 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Slider Front</h1>
-        <a href="home.index" style="text-decoration: none;" class="text-dark">Look in Home <i class="bi bi-eye-fill"></i></a>
+        <a href="/" style="text-decoration: none;" class="text-dark">Look in Home <i class="bi bi-eye-fill"></i></a>
         <a href="{{ url('create4') }} " class="btn btn-dark px-5">Add Slider <i class="bi bi-file-earmark-diff"></i></a>
       </div>
       </main>

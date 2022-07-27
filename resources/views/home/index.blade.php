@@ -26,7 +26,7 @@
           </h5>
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3 text-dark" href="login" style="font-size: 100%">Daftar | Masuk</a>
+        <a class="nav-link px-3 text-light btn btn-primary" href="login" style="font-size: 100%">Sign in  <i class="bi bi-box-arrow-in-right"></i></a>
         <a class="nav-link" href=""></a>
       </div>
     </div>
@@ -43,6 +43,7 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
       </ol>
       <div class="carousel-inner mt-4">
           <div class="carousel-item active">
@@ -54,6 +55,9 @@
           <div class="carousel-item">
               <img class="d-block w-100" src="pict/banner-5.jfif" alt="Third slide">
           </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="pict/banner-2.jfif" alt="Third slide">
+        </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,8 +90,8 @@
   </div>
   
 </main>
-@foreach ($product as $products)
 <section class="mt-3 border rounded-3 bg-light" style="margin-left: 1rem;">
+  @foreach ($product as $products)
     <img src="{{asset('storage/'. $products->image)}}" style="width: 18%; height: 20%; margin-right: 50%" class="m-5">
     <img src="{{asset('storage/'. $products->image)}}" style="width: 18%; height: 20%; margin-right: 50%" class="m-4">
     <img src="{{asset('storage/'. $products->image)}}" style="width: 20%; height: 20%; margin-right: 50%" class="m-5">

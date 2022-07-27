@@ -130,7 +130,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
-                                                    <small class="d-block text-center mt-3 text-light">Alredy registered? <a href="/login">Login Now!</a></small>
+                                                    <small class="d-block text-center mt-2 text-light">Back to Home? <a href="/">Click here!</a></small>
+                                                    <small class="d-block text-center mt-1 text-light">Alredy registered? <a href="/login">Login Now!</a></small>
                                                 </div>
                                             </div>
                                             <div

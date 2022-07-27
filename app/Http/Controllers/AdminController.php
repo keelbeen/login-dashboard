@@ -30,10 +30,25 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-       
-        $data = $request->except(['_token']);
-        User::insert($data);
-        return redirect('admin');
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'level' => 'max:20',
+            'username' => ['required', 'min:3', 'max:255'],
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required|min:5|max:255',
+            'gender' => 'required|max:255',
+            'dateofbirth' => 'required|min:5|max:255'
+        ]);
+        // $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        // $request->session()->flash('success', 'Registration successfull! Please login');
+        return redirect('admin')
+        ->withInput()
+        ->withErrors(['login_gagal' => 'These credentials do not match our records.']);
     }
 
     /**
